@@ -1,0 +1,37 @@
+{# index.twig #}
+
+{% set title = 'index-page' %}
+
+{% extends "base/base.twig" %}
+
+{% block page %}
+
+{% include ('components/header.twig') %}
+
+<main class="page-content">
+
+    <h1>This is index.twig</h1>
+
+    <div class="anim"></div>
+
+    <i class="svg-001-facebook-letter-logo"></i> 
+
+    <div class="icon-left-arrow"></div>
+    <div class="icon-circle-small"></div>
+    <div class="icon-logo"></div>
+    <div class="icon-question"></div>
+    <div class="icon-take-photo-face"></div>
+    <div class="icon-triangle"></div>
+    <div class="icon-twitter"></div>
+    <div class="icon-close-card"></div>
+    <div class="icon-enable-webcam"></div>
+    <div class="icon-edit-button"></div>
+
+    <img src="assets/images/pictures/380351-PCW7EE-253.jpg" alt="img">
+
+        
+</main>
+
+{% include ('components/footer.twig') %}
+
+{% endblock %}

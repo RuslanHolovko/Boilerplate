@@ -1,0 +1,30 @@
+@import ./common/mixins
+@import ./common/fonts
+@import "../../../node_modules/normalize.css/normalize"
+@import ./common/sprite
+@import ./components/header
+@import ./components/footer
+
+body
+    font-size: 14px
+    background-color: pink
+    +mb
+    +r(1920)
+        padding: 20%
+
+.anim
+    width: 100px
+    height: 100px
+    background: #333
+
+img
+    max-width: 100%
+
+@media (max-width: 1920px)
+    body
+        background: green
+
+
+@media (max-width: 1920px)
+    body
+        line-height: 2

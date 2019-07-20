@@ -1,0 +1,74 @@
+%svg-common {
+	background: url("../images/icons/sprite.svg") no-repeat;
+}
+
+.icon-circle-small {
+	@extend %svg-common;
+	background-position: 0 0;
+	width: 12px;
+	height: 12px;
+}
+
+.icon-close-card {
+	@extend %svg-common;
+	background-position: 0 2.030456852791878%;
+	width: 53px;
+	height: 52px;
+}
+
+.icon-edit-button {
+	@extend %svg-common;
+	background-position: 0 10.543657331136737%;
+	width: 36px;
+	height: 36px;
+}
+
+.icon-enable-webcam {
+	@extend %svg-common;
+	background-position: 0 22.321428571428573%;
+	width: 324px;
+	height: 195px;
+}
+
+.icon-left-arrow {
+	@extend %svg-common;
+	background-position: 0 47.04944178628389%;
+	width: 9px;
+	height: 16px;
+}
+
+.icon-logo {
+	@extend %svg-common;
+	background-position: 0 51.23558484349259%;
+	width: 97px;
+	height: 36px;
+}
+
+.icon-question {
+	@extend %svg-common;
+	background-position: 0 55.698234349919744%;
+	width: 20px;
+	height: 20px;
+}
+
+.icon-take-photo-face {
+	@extend %svg-common;
+	background-position: 0 89.73105134474328%;
+	width: 229px;
+	height: 234px;
+}
+
+.icon-triangle {
+	@extend %svg-common;
+	background-position: 0 95.24564183835182%;
+	width: 15px;
+	height: 12px;
+}
+
+.icon-twitter {
+	@extend %svg-common;
+	background-position: 0 100%;
+	width: 30px;
+	height: 30px;
+}
+

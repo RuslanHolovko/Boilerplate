@@ -1,0 +1,34 @@
+// media mixin
+=r($width)
+	@media (max-width: $width + "px")
+		@content
+
+// font-face mixin
+// =font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg)
+=font-face($name, $path, $weight: null, $style: null, $exts:  ttf )
+    $src: null
+
+    $extmods: (eot: "?", svg: "#" + str-replace($name, " ", "_"))
+
+    $formats: (otf: "opentype", ttf: "truetype")
+
+    @each $ext in $exts
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext)
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext)
+        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma)
+
+    @font-face
+        font-family: quote($name)
+        font-style: $style
+        font-weight: $weight
+        src: $src
+
+
+// short mixin to include fonts
+=mb
+	font-family: MontserratBlack, sans-serif
+
+// How to use
+// body
+// 	line-height: 1.4
+// 	+mb
