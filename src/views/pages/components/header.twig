@@ -4,8 +4,15 @@
         'about',
         'contact',
         'services'
-    ] 
+    ]
+%}
 
+{% 
+   set users = [
+        {name: 'Более 5000 моделей', icon: 'icon-png-model'},
+        {name: 'Более 5000 моделей dcsdc ', icon: 'icon-png-model2'},
+        {name: 'Более 5000 моделей sdcsdcsdc', icon: 'icon-png-model3'},
+    ]
 %}
 
 <header class="page-header">
@@ -15,4 +22,14 @@
         <li><a href="javascript:void(0)">{{ value }}</a></li>
         {% endfor %}
     </ul>
+
+    <ul>
+        {% for vfvsfvsf in users %}
+        <li>
+            <div class="{{ vfvsfvsf.icon }}"></div>
+            <p>{{ vfvsfvsf.name }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    
 </header>
