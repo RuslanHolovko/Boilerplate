@@ -29,6 +29,7 @@
     "gulp-svgstore": "^7.0.1",
     "gulp-twig": "^1.2.0",
     "gulp-webpack": "^1.5.0",
+    "gulp.spritesmith": "^6.10.1",
     "webpack": "^4.36.1"
   },
   "dependencies": {

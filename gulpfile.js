@@ -13,6 +13,7 @@ const gulpWebpack = require ('gulp-webpack');
 const webpackConfig = require ('./webpack.config.js');
 const browserSync = require ('browser-sync').create();
 const svgSprite = require("gulp-svg-sprite");
+const spritesmith = require('gulp.spritesmith');
 const gulpif = require("gulp-if");
 const imagemin = require("gulp-imagemin");
 
@@ -36,8 +37,11 @@ const urls = {
     },
     svg: {
         src: './src/assets/images/icons/*.svg',
-        srcsprites: './src/assets/images/sprites',
-        dest: './build/assets/images',
+        dest: './build/assets/images'
+    },
+    png:{
+        src: './src/assets/images/pngicons/*.png',
+        spritedest: './build/assets/images/'
     },
     images: {
         src: './src/assets/images/pictures/*',
@@ -86,10 +90,24 @@ function fonts (){
 }
 
 // svg sprites
-function spriteNew (){
+function spriteSvg (){
     return gulp.src(urls.svg.src)
     .pipe(svgSprite(config))
     .pipe(gulpif('*.scss', gulp.dest('./src/assets/styles/common'), gulp.dest(urls.svg.dest)));
+}
+
+// png sprites
+function spritePng (){
+    return spriteData = gulp.src(urls.png.src)
+        .pipe(spritesmith({
+            imgName: '../images/pngicons/sprite.png',
+            cssName: 'spritepng.css',
+            padding: 10,
+            cssVarMap: function (sprite) {
+                sprite.name = 'png-' + sprite.name;
+            }
+        }))
+        .pipe(gulpif('*.css', gulp.dest('./src/assets/styles/common'), gulp.dest(urls.png.spritedest)))    
 }
 
 // watch
@@ -97,7 +115,8 @@ function watch (){
     gulp.watch(urls.templates.src, templates);
     gulp.watch(urls.styles.src, styles);
     gulp.watch(urls.scripts.all, scripts);
-    gulp.watch(urls.svg.src, gulp.series(spriteNew, gulp.parallel(styles)));
+    gulp.watch(urls.svg.src, gulp.series(spriteSvg, gulp.parallel(styles)));
+    gulp.watch(urls.png.src, gulp.series(spritePng, gulp.parallel(styles)));
     gulp.watch(urls.images.src, imgOptimization);
     gulp.watch(urls.fonts.src, fonts);
 }
@@ -152,13 +171,15 @@ exports.del = del;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.templates = templates;
-exports.spriteNew = spriteNew;
+exports.spriteSvg = spriteSvg;
+exports.spritePng = spritePng;
 exports.imgOptimization = imgOptimization;
 
 // default task gulp
 gulp.task('default', gulp.series(
     del,
-    spriteNew,
+    spriteSvg,
+    spritePng,
     gulp.parallel(styles, templates, scripts, fonts, imgOptimization),
     gulp.parallel(watch, server)
 ))
