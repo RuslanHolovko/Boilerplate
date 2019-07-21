@@ -83,6 +83,12 @@ function imgOptimization() {
         .pipe(gulp.dest(urls.images.dest));
 }
 
+// favicon
+function favicon() {
+    return gulp.src('./src/assets/images/favicon/favicon.ico')
+        .pipe(gulp.dest('./build/assets/images/favicon/'));
+}
+
 // fonts
 function fonts (){
     return gulp.src(urls.fonts.src)
@@ -173,6 +179,7 @@ exports.scripts = scripts;
 exports.templates = templates;
 exports.spriteSvg = spriteSvg;
 exports.spritePng = spritePng;
+exports.favicon = favicon;
 exports.imgOptimization = imgOptimization;
 
 // default task gulp
@@ -180,6 +187,7 @@ gulp.task('default', gulp.series(
     del,
     spriteSvg,
     spritePng,
+    favicon,
     gulp.parallel(styles, templates, scripts, fonts, imgOptimization),
     gulp.parallel(watch, server)
 ))
