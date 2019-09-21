@@ -1,21 +1,23 @@
-const gulp = require ('gulp');
 const twig = require ('gulp-twig');
-const rename = require ('gulp-rename');
 const sass = require ('gulp-sass');
-const autoprefixer = require ('gulp-autoprefixer');
 const cssnano = require ('gulp-cssnano');
-const notify = require ("gulp-notify");
 const plumber = require ("gulp-plumber");
-const cmq = require ("gulp-group-css-media-queries");
+const gulp = require ('gulp');
 const clean = require ('del');
-const webpack = require ('webpack');
-const gulpWebpack = require ('gulp-webpack');
-const webpackConfig = require ('./webpack.config.js');
+const rename = require ('gulp-rename');
+// const gulpWebpack = require ('gulp-webpack');
+const autoprefixer = require ('gulp-autoprefixer');
 const browserSync = require ('browser-sync').create();
+const notify = require ("gulp-notify");
 const svgSprite = require("gulp-svg-sprite");
+const cmq = require ("gulp-group-css-media-queries");
 const spritesmith = require('gulp.spritesmith');
+// const webpack = require ('webpack');
 const gulpif = require("gulp-if");
+// const webpackConfig = require ('./webpack.config.js');
 const imagemin = require("gulp-imagemin");
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 // base urls
 const urls = {
@@ -120,7 +122,7 @@ function spritePng (){
 function watch (){
     gulp.watch(urls.templates.src, templates);
     gulp.watch(urls.styles.src, styles);
-    gulp.watch(urls.scripts.all, scripts);
+    gulp.watch(urls.scripts.all, scriptsConcat);
     gulp.watch(urls.svg.src, gulp.series(spriteSvg, gulp.parallel(styles)));
     gulp.watch(urls.png.src, gulp.series(spritePng, gulp.parallel(styles)));
     gulp.watch(urls.images.src, imgOptimization);
@@ -160,11 +162,22 @@ function styles (){
 }
 
 // js
-function scripts (){
-    return gulp.src(urls.scripts.src)
-        .pipe(gulpWebpack(webpackConfig, webpack))
-        .pipe(rename("app.min.js"))
-        .pipe(gulp.dest(urls.scripts.dest));
+// function scripts (){
+//     return gulp.src(urls.scripts.src)
+//         .pipe(gulpWebpack(webpackConfig, webpack))
+//         .pipe(rename("app.min.js"))
+//         .pipe(gulp.dest(urls.scripts.dest));
+// }
+
+function scriptsConcat (){
+    return gulp.src([
+        './node_modules/jquery/dist/jquery.min.js',
+        './node_modules/gsap/src/minified/TweenMax.min.js',
+        './src/assets/js/main.js'
+    ])
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(urls.scripts.dest));
 }
 
 // clean
@@ -175,7 +188,8 @@ function del (){
 // export functions
 exports.del = del;
 exports.styles = styles;
-exports.scripts = scripts;
+// exports.scripts = scripts;
+exports.scriptsConcat = scriptsConcat;
 exports.templates = templates;
 exports.spriteSvg = spriteSvg;
 exports.spritePng = spritePng;
@@ -188,6 +202,6 @@ gulp.task('default', gulp.series(
     spriteSvg,
     spritePng,
     favicon,
-    gulp.parallel(styles, templates, scripts, fonts, imgOptimization),
+    gulp.parallel(styles, templates, scriptsConcat, fonts, imgOptimization),
     gulp.parallel(watch, server)
 ))
