@@ -18,6 +18,9 @@ const gulpif = require("gulp-if");
 const imagemin = require("gulp-imagemin");
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const svgmin = require('gulp-svgmin');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
 
 // base urls
 const urls = {
@@ -58,19 +61,34 @@ const urls = {
 // svg sprites config
 const config = {
     mode: {
-        css: { 
-            dest: '.',
+        // css: { 
+        //     dest: '.',
+        //     bust: false,
+        //     sprite: '../images/icons/sprite.svg',
+        //     layout: 'vertical',
+        //     prefix: '.icon-',
+        //     dimensions: true,
+        //     render: {
+        //         scss: {
+        //             dest: '_sprite.scss',
+        //         }
+        //     }
+        // },
+        symbol: {
+            dest: '.', // destination folder
             bust: false,
-            sprite: '../images/icons/sprite.svg',
-            layout: 'vertical',
-            prefix: '.icon-',
-            dimensions: true,
+            sprite: 'svgicons/sprite.svg', //generated sprite name,
+            prefix: '.svg-', // BEM-style prefix if styles rendered
+            dimensions: "-icon",
             render: {
-                scss: {
-                    dest: '_sprite.scss',
-                }
-            }
-        }
+                css: false,
+                scss: false
+                // scss: {
+                //     dest: '_sprite.scss',
+                // }
+            },
+            // example: true  Build a sample page, please!
+          }
     }
 };
 

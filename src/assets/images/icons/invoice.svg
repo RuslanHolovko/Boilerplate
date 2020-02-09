@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.482" height="40.482" viewBox="0 0 40.482 40.482">
+  <g id="invoice-icon" transform="translate(1 1)">
+    <rect id="Rectangle_2" data-name="Rectangle 2" width="38.482" height="38.482" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+    <g id="Group_10" data-name="Group 10" transform="translate(6.14 6.365)">
+      <line id="Line_1" data-name="Line 1" x2="16.361" transform="translate(8.817 3.06)" stroke="#2a2a2a" stroke-width="2"/>
+      <path id="Path_18" data-name="Path 18" d="M586.879,278.758l.759,2.337H590.1l-1.988,1.444.759,2.337-1.988-1.444-1.988,1.444.759-2.337-1.988-1.444h2.457Z" transform="translate(-583.663 -278.758)" fill="#2a2a2a"/>
+    </g>
+    <g id="Group_11" data-name="Group 11" transform="translate(6.14 16.711)">
+      <line id="Line_2" data-name="Line 2" x2="16.361" transform="translate(8.817 3.059)" stroke="#2a2a2a" stroke-width="2"/>
+      <path id="Path_19" data-name="Path 19" d="M586.879,290.573l.759,2.337H590.1l-1.988,1.444.759,2.337-1.988-1.444-1.988,1.444.759-2.337-1.988-1.444h2.457Z" transform="translate(-583.663 -290.573)" fill="#2a2a2a"/>
+    </g>
+    <g id="Group_12" data-name="Group 12" transform="translate(6.14 27.056)">
+      <line id="Line_3" data-name="Line 3" x2="16.361" transform="translate(8.817 3.059)" stroke="#2a2a2a" stroke-width="2"/>
+      <path id="Path_20" data-name="Path 20" d="M586.879,302.387l.759,2.337H590.1l-1.988,1.444.759,2.337-1.988-1.444-1.988,1.444.759-2.337-1.988-1.444h2.457Z" transform="translate(-583.663 -302.387)" fill="#2a2a2a"/>
+    </g>
+  </g>
+</svg>
