@@ -4,6 +4,8 @@
 
 $(document).ready(function(){
     console.log('Document is ready');
+
+    svg4everybody()
     // function calc(x, b){
     //     return x + b;
     // }

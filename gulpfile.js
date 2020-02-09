@@ -18,9 +18,6 @@ const gulpif = require("gulp-if");
 const imagemin = require("gulp-imagemin");
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const svgmin = require('gulp-svgmin');
-const cheerio = require('gulp-cheerio');
-const replace = require('gulp-replace');
 
 // base urls
 const urls = {
