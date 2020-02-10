@@ -1,4 +1,4 @@
-{%  set               
+{%  set
     menuLinks = [
         'home',
         'about',
@@ -6,7 +6,6 @@
         'services'
     ]
 %}
-
 {% 
    set users = [
         {name: 'Более 5000 моделей', icon: 'icon-png-model'},
@@ -16,7 +15,9 @@
 %}
 
 <header class="page-header">
+
     <h2>This is header component</h2>
+
     <ul>
         {% for value in menuLinks %}
         <li><a href="javascript:void(0)">{{ value }}</a></li>

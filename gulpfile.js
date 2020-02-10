@@ -18,6 +18,7 @@ const gulpif = require("gulp-if");
 const imagemin = require("gulp-imagemin");
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const prettyHtml = require('gulp-pretty-html');
 
 // base urls
 const urls = {
@@ -158,8 +159,16 @@ function server (){
 function templates (){
     return gulp.src(urls.templates.pages)
         .pipe(twig())
+        .pipe(prettyHtml())
         .pipe(gulp.dest(urls.templates.dest))
 }
+
+// pretty html
+// function prettyMarkup (){
+//     return gulp.src('./build*.html')
+//         .pipe(prettyHtml())
+//         .pipe(gulp.dest(urls.templates.dest))
+// }
 
 // sass
 function styles (){

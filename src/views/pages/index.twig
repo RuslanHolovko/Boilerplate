@@ -1,21 +1,11 @@
-{# index.twig #}
-
 {% set title = 'index-page' %}
-
 {% extends "base/base.twig" %}
-
 {% block page %}
-
 {% include ('components/header.twig') %}
-
 <main class="page-content">
 
     <h1>This is index.twig</h1>
-{# 
     <div class="anim"></div>
-
-    <i class="svg-001-facebook-letter-logo"></i>  #}
-
     <i class="icon-twitter"></i>
     <i class="icon-triangle"></i>
     <i class="icon-edit-button"></i>
@@ -37,24 +27,14 @@
     <svg class="svg-labcase-icon">
         <use xlink:href="assets/images/svgicons/sprite.svg#labcase"/>
     </svg>
-    {# <i class="icon-logo"></i>
-    <i class="icon-question"></i>
-    <i class="icon-take-photo-face"></i>
-    <i class="icon-triangle"></i>
-    <i class="icon-twitter"></i>
-    <i class="icon-close-card"></i>
-    <i class="icon-enable-webcam"></i>
-    <i class="icon-edit-button"></i>
+    <svg class='svg-payment-icon'><use xlink:href='assets/images/svgicons/sprite.svg#payment'/></svg>
+    <svg class='svg-paymentblue-icon'><use xlink:href='assets/images/svgicons/sprite.svg#paymentblue'/></svg>
 
-    <hr>
-
-    <i class="icon-png-model2"></i>
-    <i class="icon-png-smile"></i>
-    <i class="icon-png-online"></i>
-
-    <img src="assets/images/pictures/380351-PCW7EE-253.jpg" alt="img"> #}
-
-        
+    {# begin socials #}
+    <div class='socials'>
+        <svg class='svg-twitter-icon'><use xlink:href='assets/images/svgicons/sprite.svg#twitter'/></svg>
+    </div>
+    {# end socials #}
 </main>
 
 {% include ('components/footer.twig') %}
