@@ -3,40 +3,14 @@
 {% block page %}
 {% include ('components/header.twig') %}
 <main class="page-content">
-
-    <h1>This is index.twig</h1>
-    <div class="anim"></div>
-    <i class="icon-twitter"></i>
-    <i class="icon-triangle"></i>
-    <i class="icon-edit-button"></i>
-    <svg class="svg-edit-button-icon">
-        <use xlink:href="assets/images/svgicons/sprite.svg#edit-button"></use>
-    </svg>
-    <svg class="svg-twitter-icon">
-        <use xlink:href="assets/images/svgicons/sprite.svg#twitter"/>
-    </svg>
-    <svg class="svg-triangle-icon">
-        <use xlink:href="assets/images/svgicons/sprite.svg#triangle"/>
-    </svg>
-    <svg class="svg-inventoryblue-icon">
-        <use xlink:href="assets/images/svgicons/sprite.svg#inventoryblue"/>
-    </svg>
-    <svg class="svg-_labcase-white-icon">
-        <use xlink:href="assets/images/svgicons/sprite.svg#_labcase-white"/>
-    </svg>
-    <svg class="svg-labcase-icon">
-        <use xlink:href="assets/images/svgicons/sprite.svg#labcase"/>
-    </svg>
     <svg class='svg-payment-icon'><use xlink:href='assets/images/svgicons/sprite.svg#payment'/></svg>
     <svg class='svg-paymentblue-icon'><use xlink:href='assets/images/svgicons/sprite.svg#paymentblue'/></svg>
 
-    {# begin socials #}
-    <div class='socials'>
-        <svg class='svg-twitter-icon'><use xlink:href='assets/images/svgicons/sprite.svg#twitter'/></svg>
-    </div>
-    {# end socials #}
+    <svg class='svg-wishlist-icon'><use xlink:href='assets/images/svgicons/sprite.svg#wishlist'/></svg>
+
 </main>
 
 {% include ('components/footer.twig') %}
+
 
 {% endblock %}
